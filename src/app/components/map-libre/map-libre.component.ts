@@ -10,12 +10,14 @@ import maplibregl from 'maplibre-gl';
 })
 export class MapLibreComponent {
   map!: any;
-  ngOnInit(){
+  
+  ngOnInit() {
     this.map = new maplibregl.Map({
       container: 'map', // container id
       style: 'https://demotiles.maplibre.org/style.json', // style URL
-      center: [0, 0], // starting position [lng, lat]
-      zoom: 5// starting zoom
+      center: [-52.735660, -13.758035], // starting position [lng, lat]
+      zoom: 4, // starting zoom
+      minZoom: 3
     });
   }
 }
