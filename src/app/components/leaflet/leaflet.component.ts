@@ -43,7 +43,7 @@ export class LeafletComponent {
       "Satelite": satelite
     }
 
-    let marker = L.marker([-25.520, -54.556], { draggable: true }).addTo(this.map);
+    let marker = L.marker([-25.520, -54.556]).addTo(this.map);
     let circle = L.circle([-24.954, -53.471], {
       color: "green",
       fillOpacity: 0.5,
@@ -57,7 +57,9 @@ export class LeafletComponent {
       color: "blue"
     });
 
-    marker.bindPopup("Foz do Iguaçu");
+    marker.bindPopup(`
+      <a href="/leaflet">Foz do Iguaçu</a>
+      `);
     circle.bindPopup("Cascavel");
     polygon.bindPopup("SMI, Med, Missal");
 
