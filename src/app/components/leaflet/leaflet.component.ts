@@ -9,11 +9,12 @@ import L from 'leaflet';
   styleUrl: './leaflet.component.css'
 })
 export class LeafletComponent {
-  map!: any;
+  map!: L.Map;
   popup = L.popup();
+  posicao!: any;
 
   ngOnInit() {
-    this.map =L.map("map").setView([-24.652, -51.432], 8);
+    this.map = L.map("map").setView([-24.652, -51.432], 8);
     let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -70,6 +71,23 @@ export class LeafletComponent {
     L.control.layers(baseMap, overlayMaps).addTo(this.map);
 
     this.map.on('click', this.onMapClick);
+
+    let getPosition = (position: GeolocationPosition) => {
+      let lat = position.coords.latitude;
+      let long = position.coords.longitude;
+      let acc = position.coords.accuracy;
+      let posicao = L.circle([lat, long], {
+        radius: acc
+      }).bindPopup("EU").addTo(this.map);
+      areas.addLayer(posicao);
+      console.log(position);
+    }
+
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(getPosition);
+    } else {
+      window.alert("Navegador não suporta localização");
+    }
   }
 
   onMapClick = (e: any) => {
