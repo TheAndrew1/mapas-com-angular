@@ -1,3 +1,14 @@
+#container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+#aside {
+    width: 50px;
+}
+
 #map {
+    width: calc(100vw - 50px);
     height: 100vh;
 }

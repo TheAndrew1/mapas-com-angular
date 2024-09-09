@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Camera } from '../../models/camera';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import L, { latLng, marker } from 'leaflet';
+import L from 'leaflet';
 
 @Component({
   selector: 'app-mapa',
