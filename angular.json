@@ -27,11 +27,14 @@
             "styles": [
               "node_modules/leaflet/dist/leaflet.css",
               "node_modules/maplibre-gl/dist/maplibre-gl.css",
+              "node_modules/leaflet.markercluster/dist/MarkerCluster.css",
+              "node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
               "src/styles.css"
             ],
             "scripts": [
               "node_modules/leaflet/dist/leaflet.js",
-              "node_modules/maplibre-gl/dist/maplibre-gl.js"
+              "node_modules/maplibre-gl/dist/maplibre-gl.js",
+              "node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"
             ]
           },
           "configurations": {
