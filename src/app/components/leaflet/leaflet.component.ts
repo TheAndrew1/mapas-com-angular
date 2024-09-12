@@ -34,13 +34,19 @@ export class LeafletComponent {
       minZoom: 4,
       attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
     });
+    var parana = L.tileLayer('https://osm.pr.gov.br/tiles/{z}/{x}/{y}.png', {
+      minZoom: 4,
+      maxZoom: 19,
+      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+    });
     osm.addTo(this.map);
 
     var baseMap = {
       "OSM": osm,
       "Clean": clean,
       "Google Streets": googleStreets,
-      "Satelite": satelite
+      "Satelite": satelite,
+      "Paraná": parana
     }
 
     let marker = L.marker([-25.520, -54.556]).addTo(this.map);
